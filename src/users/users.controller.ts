@@ -26,7 +26,7 @@ export class UserController {
     }
     
     /*Exercicio  rapido:
-    cire uma rota para atualizar usuario, recebendo o id do usuario a 
+    Crie uma rota para atualizar usuario, recebendo o id do usuario a 
     ser atualizado e as novas informacoes de usuario*/
 
 
