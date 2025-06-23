@@ -1,43 +1,45 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { User, Prisma } from '@prisma/client';
 
 @Injectable()
-export class UserService {
+export class UsersService {
+   constructor(private prisma: PrismaService) {}
 
-    //Banco de dados fake (array em memoria)
-    private users = [
-        {id:1, name:'Luana', email:'luana@gmail.com'},
-        {id:2, name:'Vitoria', email:'vitoria@gmail.com'}
-    ]
+   async create(data: Prisma.UserCreateInput): Promise<User> {
+      return this.prisma.user.create({ data });
+   }
 
-    // Faça um metodo que retorne todos os usuarios do banco de dados fake; findAll?
-    findAll(): {id:number, name:string, email:string}[] {
-        return this.users
-    }
+   async findAll(): Promise<User[]> {
+      return this.prisma.user.findMany()
+   }
 
-    // buscar usuario por ID
-    findOne(id: number):{id:number, name:string, email:string} | undefined {
+   async findOne(id: string): Promise<User | null> {
+      const foundUser = await this.prisma.user.findUnique(
+         {where:{id}}
+      )
+         if(!foundUser){
+            throw new NotFoundException(
+               `Usuário com o ID ${id} não encontrado!`)
+         }
+         return foundUser
+   }
 
-        const foundUser = this.users.find((u)=> u.id === id)
+   async update(id: string, data: Prisma.UserUpdateInput): Promise <User | null >{
+      const  updatedUser = await this.prisma.user.update({where: {id}, data})
+      if(!updatedUser){
+            throw new NotFoundException(
+               `Usuário com o ID ${id} não encontrado!`)
+         }
+         return updatedUser
+   }
 
-        return foundUser
-    }
-
-    // Criar um novo usuario
-    create(user:{name:string, email:string}): string{
-        
-        const newUser = {
-            id: this.users.length + 1,
-            name: user.name,
-            email: user.email
-        }
-
-        this.users.push(newUser)
-
-        return `Usuário ${newUser.name} criado com o ID ${newUser.id}`
-
-    }
-
-
-
-    
-} 
+   async remove (id: string): Promise<User | null>{
+      const  removedUser = await this.prisma.user.delete({where: {id}})
+      if(!removedUser){
+            throw new NotFoundException(
+               `Usuário com o ID ${id} não encontrado!`)
+         }
+         return removedUser
+   }
+}
