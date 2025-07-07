@@ -13,6 +13,15 @@ async function bootstrap() {
   )
  .setVersion('1.0')
   .addTag('users') // Tag opcional para categorizar as rotas
+  .addBearerAuth({ // Esquema jwt Bearer
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      in: 'header'
+  }) 
+
+
   .build(); // Construir a configuração
 
     const document = SwaggerModule.createDocument(app, config);
@@ -28,6 +37,6 @@ async function bootstrap() {
 
     await app.listen(3000);
 
-}
+} 
 
 bootstrap();

@@ -1,16 +1,19 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/create-user.dto';
-import {  ApiTags, ApiBody, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
+import {  ApiTags, ApiBody, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/jwt.guard';
 
-
+  
 @ApiTags('users') // Tag para agrupar essas rotas no Swagger
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @Controller('users')
 export class UsersController {
-constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
 
-  @Post() // Rota cria usuario 
+  /* @Post() // Rota cria usuario 
   @ApiOperation({summary: 'Criar um novo usuario'}) // summary e tipo um resumo
   @ApiBody({type: CreateUserDto})
   @ApiResponse({status:201, description: 'Usuário criado com sucesso!'})
@@ -18,7 +21,8 @@ constructor(private readonly usersService: UsersService) {}
   @ApiResponse({ status: 500, description: 'Erro interno do servidor!' }) 
    create(@Body() data: CreateUserDto) {
     return this.usersService.create(data);
-   }
+   }*/
+
 
 @Get() // lista todos 
  @ApiOperation({ summary: 'Listar todos os usuários' })

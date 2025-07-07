@@ -17,4 +17,11 @@ model User{
   id String @id @default(uuid()) //Int @id @default(autoincrement())=String(uuid()) npx prisma migrate dev --name change id
   name String
   email String @unique
-}
+  password String
+  role UserRole @default(TURISTA)
+} 
+
+enum UserRole{
+  ADMIN
+  TURISTA
+} 
