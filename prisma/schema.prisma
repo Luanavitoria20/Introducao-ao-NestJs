@@ -25,3 +25,19 @@ enum UserRole{
   ADMIN
   TURISTA
 } 
+
+model Place {
+  id       String    @id @default(uuid())
+  name     String
+  type    placeType
+  phone    String
+  latitude Float
+  longitude Float
+  images    Json[]
+}
+
+enum placeType {
+  RESTAURANTE
+  BAR
+  HOTEL
+}
