@@ -9,7 +9,7 @@ import { TuristaGuard } from 'src/auth/turista.guard';
   
 @ApiTags('users') // Tag para agrupar essas rotas no Swagger
 @UseGuards(JwtAuthGuard)
-@UseGuards(TuristaGuard)
+// @UseGuards(TuristaGuard)
 @ApiBearerAuth()
 @Controller('users')
 export class UsersController {
