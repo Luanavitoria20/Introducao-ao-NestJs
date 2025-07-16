@@ -4,11 +4,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/create-user.dto';
 import {  ApiTags, ApiBody, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt.guard';
-import { AdminGuard } from 'src/auth/admin.guard';
+import { TuristaGuard } from 'src/auth/turista.guard';
 
   
 @ApiTags('users') // Tag para agrupar essas rotas no Swagger
 @UseGuards(JwtAuthGuard)
+@UseGuards(TuristaGuard)
 @ApiBearerAuth()
 @Controller('users')
 export class UsersController {
@@ -24,7 +25,6 @@ export class UsersController {
     return this.usersService.create(data);
    }*/
 
-@UseGuards(AdminGuard)
 @Get() // lista todos 
  @ApiOperation({ summary: 'Listar todos os usuários' })
     @ApiResponse({ status: 200,
