@@ -1,0 +1,21 @@
+
+# Etapa 01: Definir a imagem base do Node
+FROM node:20-alpine
+
+# Etapa 02: Definir o diretório de trabalho do container
+WORKDIR /app
+
+# Etapa 03:  Copiar arquivos de depência e instalar 
+COPY package.json /.
+COPY package-lock.json /.
+# COPY package*json /. esse comando * pode copiar qualquer pasta q termine com .json
+RUN npm install
+
+# Etapa 04: Copia o restante dos arquivos e compilar 
+COPY . .
+RUN npx prisma generate
+RUN npm run build
+
+# Etapa 05: Expor a porta da aplicação 
+EXPOSE 3000    
+

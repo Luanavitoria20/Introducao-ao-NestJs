@@ -10,3 +10,24 @@ services:
     ports:
       - "5432:5432"
 
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: nest-api
+    env_file: .env
+    ports: 
+     - "${API_PORT}:${API_PORT}"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: ${DATABASE_URL_CONTAINER}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    command: sh -c "npx prisma migrate deploy && npm run start prod"
+    
+
+     
+
+  
