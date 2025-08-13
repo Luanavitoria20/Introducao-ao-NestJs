@@ -3,8 +3,8 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/create-user.dto';
 import {  ApiTags, ApiBody, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt.guard';
-import { TuristaGuard } from 'src/auth/turista.guard';
+import { JwtAuthGuard } from '../auth/jwt.guard'
+import { TuristaGuard } from '../auth/turista.guard';
 
   
 @ApiTags('users') // Tag para agrupar essas rotas no Swagger
