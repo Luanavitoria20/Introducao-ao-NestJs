@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { Place } from '@prisma/client';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { ImageObject } from './types/image-object';
 import { CloudinaryService } from './cloudinary.service';
 
@@ -13,7 +13,7 @@ export class PlaceService {
     ) { }
 
     async findAll(){
-        return this.prisma.place.findMany()
+        return this.prisma.place.findMany() // -> []
     }
 
     async findPaginated(page: number, limit: number){

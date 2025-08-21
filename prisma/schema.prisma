@@ -42,4 +42,5 @@ enum placeType {
   RESTAURANTE
   BAR
   HOTEL
+  CAFETERIA
 }
