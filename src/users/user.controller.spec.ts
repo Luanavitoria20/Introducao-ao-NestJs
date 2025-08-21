@@ -20,7 +20,7 @@ describe("User Controller Tests", () => {
                 {provide: UsersService, useValue: mockUserService}
             ],
         }).compile()
-
+ 
         controller = module.get<UsersController>(UsersController)
     });
     it('deve listar todos os usuários', async () => {
