@@ -56,34 +56,7 @@ npm run start:cov
 
 ----
 
-### 📂 Estrutura do projeto
-
-├── prisma/
-│   ├── migrations/
-│   └── schema.prisma
-│
-├── src/
-│   ├── auth/        # módulo de autenticação
-│   ├── place/       # módulo para lugares
-│   ├── prisma/      # integração do Prisma com NestJS
-│   ├── users/       # módulo de usuários
-│   ├── app.module.ts
-│   └── main.ts
-│
-├── test/            # testes
-│
-├── .env
-├── .dockerignore
-├── .gitignore
-├── .prettierrc
-├── docker-compose.yml
-├── Dockerfile.api
-├── eslint.config.mjs
-├── nest-cli.json
-├── tsconfig.json
-├── package.json
-└── README.md
-
+### 📌 Endpoints CRUD
 ----
 
 ✅ Funcionalidades previstas
