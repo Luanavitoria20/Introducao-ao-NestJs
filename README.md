@@ -17,7 +17,7 @@ Este repositório é um ponto de partida: nele você vai aprender
 
 ---
 
-🛠️ Tecnologias usadas
+**🛠️ Tecnologias usadas**
 
 🟢 Node.js + TypeScript
 
@@ -58,33 +58,33 @@ npm run start:cov
 
 ### 📌 Endpoints CRUD
 
-👤 Usuários
+**👤 Usuários**
 Gerenciamento de usuários do sistema. Permite criar contas, listar todos os usuários cadastrados, buscar por ID, atualizar informações e deletar registros.
 
-- GET /users → Listar todos os usuários
-- GET /users/:id → Buscar usuário por ID
-- POST /users → Criar novo usuário
-- PUT /users/:id → Atualizar usuário
-- DELETE /users/:id → Deletar usuário
+- **GET** /users → Listar todos os usuários
+- **GET** /users/:id → Buscar usuário por ID
+- **POST** /users → Criar novo usuário
+- **PUT** /users/:id → Atualizar usuário
+- **DELETE** /users/:id → Deletar usuário
 
-📍 Places
+**📍 Places**
 Cadastro de locais (places) no sistema. Pode ser usado para registrar pontos turísticos, locais de interesse ou espaços personalizados pelo usuário.
 
-- GET /place → Listar todos os places
-- GET /place/:id → Buscar place por ID
-- POST /place → Criar novo place
-- PUT /place/:id → Atualizar place
-- DELETE /place/:id → Deletar place
+- **GET** /place → Listar todos os places
+- **GET** /place/:id → Buscar place por ID
+- **POST** /place → Criar novo place
+- **PUT** /place/:id → Atualizar place
+- **DELETE** /place/:id → Deletar place
 
-🔑 Auth
+**🔑 Auth**
 Módulo de autenticação responsável por registro e login. Utiliza JWT para autenticação e controle de acesso.
 
-- POST /auth/register → Registrar novo usuário
-- POST /auth/login → Fazer login e receber token JWT
+- **POST** /auth/register → Registrar novo usuário
+- **POST** /auth/login → Fazer login e receber token JWT
 
 ----
 
-✅ Funcionalidades previstas
+**✅ Funcionalidades previstas**
 
 📝 Endpoints CRUD básicos
 
@@ -100,7 +100,7 @@ Módulo de autenticação responsável por registro e login. Utiliza JWT para au
 
 ---
 
-💡 Sugestões de melhorias
+**💡 Sugestões de melhorias**
 
 🔑 Implementar autenticação / autorização avançada
 
