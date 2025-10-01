@@ -31,7 +31,7 @@ Este repositório é um ponto de partida: nele você vai aprender
 
 ### 🚀 Como rodar localmente
 
-# 1️⃣ Clone este repositório
+### 1️⃣ Clone este repositório
 git clone https://github.com/Luanavitoria20/Introducao-ao-NestJs.git
 
 ### 2️⃣ Subir os contêineres
@@ -41,13 +41,13 @@ docker-compose up
 - Para reconstruir imagens e subir (quando fizer alterações no código ou dependências):  
 docker-compose up --build
 
-# 3️⃣ Instale as dependências
+### 3️⃣ Instale as dependências
 npm install
 
-# 4️⃣  Inicie o servidor em modo de desenvolvimento
+### 4️⃣  Inicie o servidor em modo de desenvolvimento
 npm run start:dev
 
-# 5️⃣  Rodar os testes
+### 5️⃣  Rodar os testes
 npm test  
 npm run start:cov
 
