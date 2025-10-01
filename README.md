@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ### 🌱 Introdução ao NestJs
 
 Bem-vind@ a este jardim de código 🌸 — um projeto simples com NestJS, construído para florescer 🌼 o entendimento sobre estrutura, comandos e boas práticas na criação de APIs.
